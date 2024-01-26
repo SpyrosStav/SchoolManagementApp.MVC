@@ -27,13 +27,13 @@ public partial class SchoolManagementDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__Classes__3214EC070DE2415A");
 
-            // entity.HasOne(d => d.Course).WithMany(p => p.Classes)
-            //     .HasForeignKey(d => d.CourseId)
-            //     .HasConstraintName("FK__Classes__CourseI__4AB81AF0");
+            entity.HasOne(d => d.Course).WithMany(p => p.Classes)
+                .HasForeignKey(d => d.CourseId)
+                .HasConstraintName("FK__Classes__CourseI__4AB81AF0");
 
-            // entity.HasOne(d => d.Lecturer).WithMany(p => p.Classes)
-            //     .HasForeignKey(d => d.LecturerId)
-            //     .HasConstraintName("FK__Classes__Lecture__49C3F6B7");
+            entity.HasOne(d => d.Lecturer).WithMany(p => p.Classes)
+                .HasForeignKey(d => d.LecturerId)
+                .HasConstraintName("FK__Classes__Lecture__49C3F6B7");
         });
 
         modelBuilder.Entity<Course>(entity =>
